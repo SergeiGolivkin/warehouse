@@ -3,5 +3,13 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <includeAll path="db/changelog/2021/*"/>
+
+    <changeSet id="1" author="Sergei Golivkin">
+        <dropTable tableName="coming"/>
+        <dropTable tableName="consumption"/>
+        <dropTable tableName="product"/>
+        <dropTable tableName="group"/>
+        <dropTable tableName="user"/>
+
+    </changeSet>
 </databaseChangeLog>
