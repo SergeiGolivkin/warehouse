@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2021-20-04-21-40" author="Sergei Golivkin">
+        <comment>create table "coming"</comment>
+        <createTable tableName="coming">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="coming_quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="coming_price" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="coming_provider" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="coming_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="coming"
+                                 baseColumnNames="product_id"
+                                 constraintName="fk_coming_product_id"
+                                 referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
